@@ -78,7 +78,7 @@ https://docs.docker.com/engine/reference/commandline/commit/
 docker ec8532ba15c1 commit
 ```
 
-<img src="images/Docker_commit" width="800px" >
+<img src="images/Docker_commit.png" width="800px" >
 
 ## 1.5 Execute docker image (or test)
 ```
