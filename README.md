@@ -14,7 +14,7 @@ The device will send Iot messages to AWS-Iot hub for test purposes.
 6. Run (software) Iot device
 7. Verify messages in AWS
 8. Optional: prepare Pipeline + database
-8. Visualize
+9. Visualize
 
 ## 1 Install Docker
 ### 1.1 Install Docker CE (Community Edition) on MAC / PC
@@ -80,11 +80,38 @@ docker ec8532ba15c1 commit
 
 <img src="images/Docker_commit.png" width="800px" >
 
-## 1.5 Execute docker image (or test)
+### 3.3 Testing if everything is saved
+
+```
+docker stop mySmallLinux
+docker start mySmallLinux
+```
+
+## 4 Create 'thing' in AWS
 ```
 
 ```
-## 1.6 Analyze containers
+## 5 Prepare container with AWS-SDK + AWS certificates
+```
+
+
+```
+## 6 Run (software) Iot device
+```
+
+
+```
+## 7 Verify messages in AWS
+```
+
+
+```
+## 8 Optional: prepare Pipeline + database
+```
+
+
+```
+## 9 Optional: Visualize
 ```
 
 
