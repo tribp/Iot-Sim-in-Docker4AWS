@@ -1,7 +1,7 @@
 # Iot-Sim-in-Docker4AWS
 
 ## Goal
-Is to make a software Iot simulation device in Docker for AWS.
+The goal is to make a software Iot simulation device in Docker for AWS.
 The device will send Iot messages to AWS-Iot hub for test purposes.
 
 ## Steps we will take:
@@ -27,6 +27,7 @@ docker --version
 Docker version 18.03.0-ce, build 0520e24
 ```
 PS: see other Repo for additional Docker commands or info
+https://github.com/tribp/Docker-Getting-Started
 
 ## 2 Run Alpine container
 Why 'Alpine' ?
@@ -42,7 +43,7 @@ docker container run -it --name mySmallLinux alpine sh      -> start container +
 ## 3 Pimp this container
 We even need some basic stuff, remember the 5MB footprint, + ...
 
-Essential thing we need:
+Essential things we need:
 - nano as text editor
 - bash to execute our script
 - git to get the repositories
