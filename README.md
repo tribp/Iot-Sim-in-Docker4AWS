@@ -78,7 +78,7 @@ https://docs.docker.com/engine/reference/commandline/commit/
 docker ec8532ba15c1 commit
 ```
 
-<img src="images/docker_commit" width="800px" >
+<img src="images/Docker_commit" width="800px" >
 
 ## 1.5 Execute docker image (or test)
 ```
@@ -89,17 +89,3 @@ docker ec8532ba15c1 commit
 
 
 ```
-### 1.7 starting CLI inside of container
-
-    2 options:
-
-    a. docker container run -it ... -> start a container interactively in the same process.
-        if we leave CLI then container stops !!!
-    b. docker container exec -it .. -> starts a cli on running container in ADDITIONAL process.
-        if we leace CLI then CLI stops but container continues !!!
-```
-
-```
-### 1.8 (Default) launch command
-
-<img src="images/docker_Container_default_Cmd.png" width="800px" >
