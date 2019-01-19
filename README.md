@@ -97,11 +97,19 @@ docker start mySmallLinux
       - create a policy for your thing ( or thing family)
 In AWS:      
 
+Create your thing
+
 <img src="images/create_a_thing.png" width="800px" >
+
+Create your certificates
 
 <img src="images/create_certificates.png" width="800px" >
 
+Download your certificates
+
 <img src="images/certificates_created.png" width="800px" >
+
+Create a policy for your thing ( or thing family)
 
 <img src="images/create_policy.png" width="800px" >    
 
@@ -175,10 +183,12 @@ Dont't forget to run 'docker ec8532ba15c1 commit' to save your changes to the co
 Everything should be ready now on your container:
 
 Container ROOT directory:
+
 <img src="images/container_root_ls.png" width="800px" >
 
 Container certs directory:
-<img src="images/container_certs_ls.png" width="800px" >
+
+<img src="images/container_cert_ls.png" width="800px" >
 
 
 
@@ -201,6 +211,7 @@ Your device is RUNNING and sending messages to AWS_IOT_ENDPOINT
 <img src="images/wireshark_mqtt_AWS_SDK.png" width="800px" >
 
 ## 7 Verify messages in AWS
+
 
 <img src="images/mqtt_msg_in_aws.png" width="800px" >
 
