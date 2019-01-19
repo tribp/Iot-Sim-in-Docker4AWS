@@ -95,6 +95,7 @@ docker start mySmallLinux
       - create your certificates
       - download your certificates
       - create a policy for your thing ( or thing family)
+In AWS:      
 
 <img src="images/create_a_thing.png" width="800px" >
 
@@ -114,7 +115,7 @@ First we will have to copy the certifications and for mqtt we have to options:
 
 ### 5.1 Copy files
 
-Next, we have to copy the files from our local Mac/PC to our Docker instance.
+First, we have to copy the files from our local Mac/PC to our Docker instance.
 Luckily, this is pretty straightforeward in docker. Just prepend 'docker' before your common linux commands :-)
 
 To do:
@@ -208,10 +209,11 @@ PS: if your device is running correctly but you don't see messages in AWS
 check:
   - 'ENDPOINT', port nr, certificates
   - 'Policy' -> in AWS console , and Policy is attached to certificate.
+
     Policy has:
-        - Resource = 'endpoint' + ClientId  ( or simply '*' = not best practise )
+        - Resource = 'endpoint' + ClientId  ( or simply ' * ' = not best practice )
         - Action = allow / deny
-        - topic ( '*' = not best practise)
+        - topic ( ' * ' = not best practice)
 
         [see policy example](/examples/aws_policy_4_thing.txt)
 
