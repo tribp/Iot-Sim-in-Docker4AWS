@@ -34,6 +34,7 @@ Why 'Alpine' ?
 Lets give it a try :-)
 
 Alpine is the 'leanest' linux distribution, stripped from EVERYTHING, but the essential.
+
 Pro -> this will give us a very small distribution (5MB) for the local PC, with an extra bonus of a minimal security attack surface and finally a better understanding of what components we need.
 
 ```
@@ -63,13 +64,15 @@ apk add python
 ```
 ### 3.2 Saving your homework
 
-In order not to lose our homework an to keep all the changes to this container we need to tell docker to do so.  
+In order not to lose our homework and to keep all the changes to this container we need to tell docker to do so.  
 First we need to get the ID of the container and then execute a commit on this container.
 
 Get the id of the container:
 ```
 docker ps
 ```
+
+<img src="images/Docker_commit.png" width="800px" >
 
 Commit (save) the container
 PS: additional info about version info etc :
@@ -79,7 +82,7 @@ https://docs.docker.com/engine/reference/commandline/commit/
 docker ec8532ba15c1 commit
 ```
 
-<img src="images/Docker_commit.png" width="800px" >
+
 
 ### 3.3 Testing if everything is saved
 
@@ -115,9 +118,9 @@ In AWS:
 
 ## 5 Prepare for MQTT AWS certificates
 
-First we will have to copy the certifications and for mqtt we have to options:
+First we will have to copy the certifications and for mqtt we have 2 options:
 
-  - the well known Paho library
+  - the well known Paho library <br>
   or
   -  the AWS-Iot-SDK library (based on Paho)
 
@@ -128,7 +131,7 @@ Luckily, this is pretty straightforeward in docker. Just prepend 'docker' before
 
 To do:
 - create 'certs' directory in your docker instance
-- Copy the 3 'Thing certificates' , the root CA certificate and the start script ('start.sh') to the cert dir.
+- Copy the 3 'Thing certificates' , the root CA certificate and the start script ('start.sh') + the python files (devSim2AWS_Pahoo.py & devSim2AWS_awsSDK.py) to the cert dir.
 
 ##5.1 commands
 
@@ -176,7 +179,7 @@ If you look into the start.sh script, you will notice that the last line is the 
 python aws-iot-device-sdk-python/samples/basicPubSub/basicPubSub.py -e xxxxxxxxxxx-yyy.iot.eu-west-1.amazonaws.com -r root-CA.crt -c AirQSimDocker001.cert.pem -k AirQSimDocker001.private.key
 ```
 
-### 5.4 Saving your homework
+### 5.4 Saving & verifying your homework
 
 Dont't forget to run 'docker ec8532ba15c1 commit' to save your changes to the container.
 
@@ -222,6 +225,7 @@ check:
   - 'Policy' -> in AWS console , and Policy is attached to certificate.
 
     Policy has:
+    
         - Resource = 'endpoint' + ClientId  ( or simply ' * ' = not best practice )
         - Action = allow / deny
         - topic ( ' * ' = not best practice)
