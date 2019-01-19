@@ -215,7 +215,7 @@ check:
         - Action = allow / deny
         - topic ( ' * ' = not best practice)
 
-        [see policy example](/examples/aws_policy_4_thing.txt)
+        [see policy example](./examples/aws_policy_4_thing.txt)
 
 ## 8 Optional: prepare Pipeline + database
 to do
