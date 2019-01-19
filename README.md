@@ -79,7 +79,7 @@ PS: additional info about version info etc :
 https://docs.docker.com/engine/reference/commandline/commit/
 
 ```
-docker ec8532ba15c1 commit
+docker commit ec8532ba15c1
 ```
 
 
@@ -225,7 +225,7 @@ check:
   - 'Policy' -> in AWS console , and Policy is attached to certificate.
 
     Policy has:
-    
+
         - Resource = 'endpoint' + ClientId  ( or simply ' * ' = not best practice )
         - Action = allow / deny
         - topic ( ' * ' = not best practice)
