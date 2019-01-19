@@ -97,19 +97,19 @@ docker start mySmallLinux
       - create a policy for your thing ( or thing family)
 In AWS:      
 
-Create your thing
+## Create your thing
 
 <img src="images/create_a_thing.png" width="800px" >
 
-Create your certificates
+## Create your certificates
 
 <img src="images/create_certificates.png" width="800px" >
 
-Download your certificates
+## Download your certificates
 
 <img src="images/certificates_created.png" width="800px" >
 
-Create a policy for your thing ( or thing family)
+## Create a policy for your thing ( or thing family)
 
 <img src="images/create_policy.png" width="800px" >    
 
