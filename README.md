@@ -89,30 +89,136 @@ docker start mySmallLinux
 ```
 
 ## 4 Create 'thing' in AWS
+  - goto 'AWS-Iot':
+    - 'manage' -> 'Things'
+      - create your thing
+      - create your certificates
+      - download your certificates
+      - create a policy for your thing ( or thing family)
+
+<img src="images/create_a_thing.png" width="800px" >
+
+<img src="images/create_certificates.png" width="800px" >
+
+<img src="images/certificates_created.png" width="800px" >
+
+<img src="images/create_policy.png" width="800px" >    
+
+## 5 Prepare for MQTT AWS certificates
+
+First we will have to copy the certifications and for mqtt we have to options:
+
+  - the well known Paho library
+  or
+  -  the AWS-Iot-SDK library (based on Paho)
+
+### 5.1 Copy files
+
+Next, we have to copy the files from our local Mac/PC to our Docker instance.
+Luckily, this is pretty straightforeward in docker. Just prepend 'docker' before your common linux commands :-)
+
+To do:
+- create 'certs' directory in your docker instance
+- Copy the 3 'Thing certificates' , the root CA certificate and the start script ('start.sh') to the cert dir.
+
+##5.1 commands
+
+On the docker container:
 ```
+mkdir certs
 
 ```
-## 5 Prepare container with AWS-SDK + AWS certificates
+
+On your Mac/PC: -> ' docker cp YOUR_LOCAL_PATH  CONTAINERNAME:/PATH'
+```
+docker cp /Users/tribp/Data/brol/certs mySmallLinux:/certs
+
+```
+
+### 5.2 Option 1: Using the 'Paho' mqtt library
+
+'pahoo.mqtt.client' -> In order to install this python library we first need 'pip', the python package manager
+
+```
+apk add py-pip
+pip install paho-mqtt
 ```
 
 
-```
-## 6 Run (software) Iot device
-```
+### 5.3 Option 2: Using the AWS-Iot-SDK (AWSIoTPythonSDK.MQTTLib)
+
+https://github.com/aws/aws-iot-device-sdk-python
 
 
+
+On the docker container:
 ```
+cd certs
+bash start.sh
+
+```
+
+#### 5.3.1 Remark: what is going on behind the scenes:
+If you look into the start.sh script, you will notice that the last line is the launch of the actual python program:
+
+'python -e AWS_IOT_ENDPOINT -r rootCA THING_CERT THING_KEY'
+
+```
+python aws-iot-device-sdk-python/samples/basicPubSub/basicPubSub.py -e xxxxxxxxxxx-yyy.iot.eu-west-1.amazonaws.com -r root-CA.crt -c AirQSimDocker001.cert.pem -k AirQSimDocker001.private.key
+```
+
+### 5.4 Saving your homework
+
+Dont't forget to run 'docker ec8532ba15c1 commit' to save your changes to the container.
+
+Everything should be ready now on your container:
+
+Container ROOT directory:
+<img src="images/container_root_ls.png" width="800px" >
+
+Container certs directory:
+<img src="images/container_certs_ls.png" width="800px" >
+
+
+
+## 5.5 Start your (software) Thing !!!
+
+- using paho
+```
+python devSim2AWS_Pahoo.py
+
+```
+
+- using AWS-Iot-sdk
+```
+python devSim2AWS_awsSDK.py
+
+```
+
+Your device is RUNNING and sending messages to AWS_IOT_ENDPOINT
+
+<img src="images/wireshark_mqtt_AWS_SDK.png" width="800px" >
+
 ## 7 Verify messages in AWS
-```
 
+<img src="images/mqtt_msg_in_aws.png" width="800px" >
 
-```
+PS: if your device is running correctly but you don't see messages in AWS
+
+check:
+  - 'ENDPOINT', port nr, certificates
+  - 'Policy' -> in AWS console , and Policy is attached to certificate.
+    Policy has:
+        - Resource = 'endpoint' + ClientId  ( or simply '*' = not best practise )
+        - Action = allow / deny
+        - topic ( '*' = not best practise)
+
+        [see policy example](/examples/aws_policy_4_thing.txt)
+
 ## 8 Optional: prepare Pipeline + database
-```
-
-
-```
+to do
 ## 9 Optional: Visualize
+to do
 ```
 
 
