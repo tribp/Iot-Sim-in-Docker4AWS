@@ -118,7 +118,7 @@ In AWS:
 
 ## 5 Prepare container for MQTT (Paho or AWS-SDK) + AWS certificates
 
-First we will have to copy the certifications and for mqtt we have 2 options:
+First we will have to copy the certificates and for mqtt we have 2 options:
 
   - the well known Paho library <br>
   or
