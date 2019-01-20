@@ -193,6 +193,19 @@ Container certs directory:
 
 <img src="images/container_cert_ls.png" width="800px" >
 
+### 5.5 Making a Docker image 'template'
+
+Finally, we will make an ' docker image' from this running container.
+This will allow us to have a 'template' for future use or we can spin up
+multiple containers, based on this image, adapt the(sensor) parameters in the
+python file + certificates, thus having different sensors connecting and sending
+messages to AWS from our Mac/PC.
+
+
+```
+docker commit ec8532ba15c1 alpine-aws-sim-iot-device-template
+docker images                               -> we now see it in our image list
+```
 
 
 ## 5.5 Start your (software) Thing !!!
