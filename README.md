@@ -10,8 +10,8 @@ The device will send Iot messages to AWS-Iot hub for test purposes.
 2. Run Alpine container
 3. Pimp this container
 4. Create 'thing' in AWS
-5. Prepare container with AWS-SDK + AWS certificates
-6. Run (software) Iot device
+5. Prepare container for MQTT (Paho or AWS-SDK) + AWS certificates
+6. Start your (software) Iot Thing !!!
 7. Verify messages in AWS
 8. Optional: prepare Pipeline + database
 9. Visualize
@@ -116,7 +116,7 @@ In AWS:
 
 <img src="images/create_policy.png" width="800px" >    
 
-## 5 Prepare for MQTT AWS certificates
+## 5 Prepare container for MQTT (Paho or AWS-SDK) + AWS certificates
 
 First we will have to copy the certifications and for mqtt we have 2 options:
 
@@ -195,7 +195,7 @@ Container certs directory:
 
 ### 5.5 Making a Docker image 'template'
 
-Finally, we will make an ' docker image' from this running container.
+Finally, we will make a ' docker image' from this running container.
 This will allow us to have a 'template' for future use or we can spin up
 multiple containers, based on this image, adapt the(sensor) parameters in the
 python file + certificates, thus having different sensors connecting and sending
@@ -208,7 +208,7 @@ docker images                               -> we now see it in our image list
 ```
 
 
-## 5.5 Start your (software) Thing !!!
+## 6 Start your (software) Iot Thing !!!
 
 - using paho
 ```
